@@ -1,12 +1,14 @@
+import { Link } from 'react-router-dom';
+import './Landing.css'
 const Landing = () => {
   return (
-    <main>
-      <h1>Hello, you are on the landing page for visitors.</h1>
-      <h3>
-        If you sign up for a new account, you will have the ability to sign in
-        and see your super secret dashboard.
-      </h3>
+  <div className="slideshow-container">
+    <main className='card_main'>
+      <h1 className='card_title'>Welcome to Petsy</h1>
+      <button className='card_button'><Link to="/signin">Sign In</Link></button>
+      <button className='card_button'><Link to="/signup">Sign Up</Link></button>
     </main>
+  </div>
   );
 };
 
