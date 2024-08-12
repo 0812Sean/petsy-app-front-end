@@ -20,7 +20,7 @@ const Dashboard = ({}) => {
 
   return (
     <main>
-      <h1>Welcome, {user.username}</h1>
+      <h1>{user.username}'s Listings</h1>
       <p>
         This is the dashboard page where you, and only you, can see a dashboard
         of all of your things.
@@ -33,7 +33,10 @@ const Dashboard = ({}) => {
             <p>Price: ${listing.price}</p>
             <p>Category: {listing.category}</p>
             <p>Reviews: {listing.reviews}</p>
+            <button>Update</button>
+            <button>Delete</button>
           </div>
+          
         ))}
       </div>
     </main>
