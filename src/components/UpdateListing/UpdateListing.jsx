@@ -11,20 +11,27 @@ const UpdateListing = () => {
     price: '',
     category: '',
   });
-
+  
   useEffect(() => {
     const fetchListing = async () => {
       try {
-        const listing = await listService.get(listingId);
-        setFormData(listing);
+        const listing = await listService.show(listingId);
+        setFormData({
+          name: listing.name,
+          description: listing.description,
+          price: listing.price,
+          category: listing.category,
+        });
       } catch (error) {
         console.log(error);
       }
     };
+
     fetchListing();
   }, [listingId]);
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
