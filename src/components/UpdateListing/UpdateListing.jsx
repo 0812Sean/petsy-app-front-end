@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import * as listService from '../../services/listSever';
-// import './NewListing.css';
 
-const NewListing = (props) => {
+const UpdateListing = () => {
+  const { listingId } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
@@ -11,38 +11,41 @@ const NewListing = (props) => {
     price: '',
     category: '',
   });
-  const [message, setMessage] = useState('');
 
-  const updateMessage = (msg) => {
-    setMessage(msg);
-  };
+  useEffect(() => {
+    const fetchListing = async () => {
+      try {
+        const listing = await listService.get(listingId);
+        setFormData(listing);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchListing();
+  }, [listingId]);
 
   const handleChange = (e) => {
-    const {name, value} = e.target
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const newItem = await listService.create(formData)
-      console.log(newItem)
-      navigate('/')
-    } catch (err) {
-      updateMessage(err.message)
+      await listService.update(listingId, formData);
+      navigate('/');
+    } catch (error) {
+      console.log(error);
     }
   };
 
   return (
     <main>
-      <h1>Create New Listing</h1>
-      <p>{message}</p>
+      <h1>Update Listing</h1>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="title">Title:</label>
+          <label htmlFor="name">Name:</label>
           <input
             type="text"
-            autoComplete="off"
             id="name"
             value={formData.name}
             name="name"
@@ -51,8 +54,8 @@ const NewListing = (props) => {
         </div>
         <div>
           <label htmlFor="description">Description:</label>
-          <textarea
-            autoComplete="off"
+          <input
+            type="text"
             id="description"
             value={formData.description}
             name="description"
@@ -63,7 +66,6 @@ const NewListing = (props) => {
           <label htmlFor="price">Price:</label>
           <input
             type="number"
-            autoComplete="off"
             id="price"
             value={formData.price}
             name="price"
@@ -71,16 +73,12 @@ const NewListing = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="categorty">Category:</label>
+          <label htmlFor="category">Category:</label>
           <select
-            type="category"
-            autoComplete="off"
             id="category"
-            placeHolder='Select a category'
             value={formData.category}
             name="category"
             onChange={handleChange}
-            required = {true}
           >
             <option value="Electronics">Electronics</option>
             <option value="Books">Books</option>
@@ -88,14 +86,14 @@ const NewListing = (props) => {
             <option value="Furniture">Furniture</option>
             <option value="Toys">Toys</option>
             <option value="Food">Food</option>
-            </select>
+          </select>
         </div>
         <div>
-          <button type="submit">Create Listing</button>
+          <button type="submit">Update Listing</button>
         </div>
       </form>
     </main>
   );
 };
 
-export default NewListing;
+export default UpdateListing;
