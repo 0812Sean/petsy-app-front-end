@@ -6,9 +6,10 @@ import * as listService from '../../services/listSever';
 const NewListing = (props) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    title: '',
+    name: '',
     description: '',
     price: '',
+    category: '',
   });
   const [message, setMessage] = useState('');
 
@@ -17,7 +18,7 @@ const NewListing = (props) => {
   };
 
   const handleChange = (e) => {
-    updateMessage('');
+    const {name, value} = e.target;
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
