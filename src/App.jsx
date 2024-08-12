@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import SignupForm from './components/SignupForm/SignupForm';
 import SigninForm from './components/SigninForm/SigninForm';
 import * as authService from '../src/services/authService'; // import the authservice
+import NewListing from './components/NewListing/NewListing';
 
 export const AuthedUserContext = createContext(null);
 
@@ -29,6 +30,7 @@ const App = () => {
           )}
           <Route path="/signup" element={<SignupForm setUser={setUser} />} />
           <Route path="/signin" element={<SigninForm setUser={setUser} />} />
+          <Route path ='/new' element={<NewListing />} />
         </Routes>
       </AuthedUserContext.Provider>
     </>

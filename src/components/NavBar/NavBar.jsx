@@ -18,6 +18,9 @@ const NavBar = ({ handleSignout }) => {
                 Sign Out
               </Link>
             </li>
+            <li>
+              <Link to="/new">New Listing</Link>
+            </li>
           </ul>
         </nav>
       ) : (
