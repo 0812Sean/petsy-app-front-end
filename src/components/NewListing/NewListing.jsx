@@ -71,7 +71,7 @@ const NewListing = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="categorty">Price:</label>
+          <label htmlFor="categorty">Category:</label>
           <select
             type="category"
             autoComplete="off"
