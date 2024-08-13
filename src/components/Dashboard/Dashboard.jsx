@@ -1,10 +1,12 @@
 import { AuthedUserContext } from '../../App';
 import { useContext, useEffect, useState } from 'react';
 import * as listService from '../../services/listSever';
-import './Dashboard.css';
+import { useNavigate } from 'react-router-dom';
+import './Dashboard.css'
 
-const Dashboard = ({}) => {
-  // const navigate = useNavigate();
+
+const Dashboard = () => {
+  const navigate = useNavigate()
   const user = useContext(AuthedUserContext);
   const [listings, setListings] = useState([]);
 
@@ -12,7 +14,7 @@ const Dashboard = ({}) => {
     const fetchListings = async () => {
       try {
         const userLists = await listService.index();
-
+  
         setListings(userLists);
       } catch (error) {
         console.log(error);
@@ -39,7 +41,7 @@ const Dashboard = ({}) => {
     } catch (error) {
       console.log('Failed to delete listing:', error);
     }
-  };
+  }
 
   return (
     <main>
