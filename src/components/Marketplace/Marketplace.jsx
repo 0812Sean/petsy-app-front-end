@@ -1,23 +1,44 @@
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import * as listService from '../../services/listServer';
 
-const List = ({ lists }) => {
+const Marketplace = () => {
+  const [listings, setListings] = useState([]);
+
+  useEffect(() => {
+    const fetchListings = async () => {
+      try {
+        const allLists = await listService.index();
+        setListings(allLists);
+      } catch (error) {
+        console.log('Error fetching lists:', error);
+      }
+    };
+
+    fetchListings();
+  }, []);
+
   return (
     <main>
-      {lists.map((list) => (
-        <Link key={list._id} to={`/lists/${list._id}`}>
-          <article>
-            <header>
-              <h2>{list.title}</h2>
-              <p>
-                {list.author.username} posted on {new Date(list.createdAt).toLocaleDateString()}
-              </p>
-            </header>
-            <p>{list.description}</p>
-          </article>
-        </Link>
-      ))}
+      <h1>Marketplace</h1>
+      <div className="listings-grid">
+        {listings.length > 0 ? (
+          listings.map((listing) => (
+            <div key={listing._id} className="listing-card">
+              <h2>{listing.name}</h2>
+              <p>{listing.description}</p>
+              <p>Price: ${listing.price}</p>
+              <p>Category: {listing.category}</p>
+              {listing.reviews && listing.reviews.map((review) => (
+                <p key={review._id}>{review.text}</p>
+              ))}
+            </div>
+          ))
+        ) : (
+          <p>No listings available</p> 
+        )}
+      </div>
     </main>
   );
 };
 
-export default List;
+export default Marketplace;

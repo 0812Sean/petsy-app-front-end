@@ -9,7 +9,7 @@ import * as authService from '../src/services/authService'; // import the authse
 import NewListing from './components/NewListing/NewListing';
 import './App.css';
 import UpdateListing from './components/UpdateListing/UpdateListing';
-
+import Marketplace from './components/Marketplace/Marketplace';
 export const AuthedUserContext = createContext(null);
 
 const App = () => {
@@ -28,8 +28,9 @@ const App = () => {
           {user ? <Route path="/" element={<Dashboard user={user} />} /> : <Route path="/" element={<Landing />} />}
           <Route path="/signup" element={<SignupForm setUser={setUser} />} />
           <Route path="/signin" element={<SigninForm setUser={setUser} />} />
-          <Route path="/new" element={<NewListing />} />
-          <Route path="/update/:listingId" element={<UpdateListing />} />
+          <Route path ='/new' element={<NewListing />} />
+          <Route path ='/update/:listingId' element={<UpdateListing /> } />
+          <Route path ='/Marketplace' element={<Marketplace/>}/>
         </Routes>
       </AuthedUserContext.Provider>
     </>

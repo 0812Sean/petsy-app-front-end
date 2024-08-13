@@ -10,6 +10,7 @@ const NewListing = (props) => {
     description: '',
     price: '',
     category: '',
+    image: '',
   });
   const [message, setMessage] = useState('');
 
@@ -22,12 +23,20 @@ const NewListing = (props) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]); 
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const newItem = await listService.create(formData);
-      console.log(newItem);
-      navigate('/'); // Redirect to home or another page after successful creation
+      // const formDataToSubmit = new FormData();
+      // if (selectedFile) {
+      //   formDataToSubmit.append('image', selectedFile);
+      // }
+      const newItem = await listService.create(formData)
+      console.log(newItem)
+      navigate('/')
     } catch (err) {
       updateMessage(err.message);
     }
@@ -95,7 +104,6 @@ const NewListing = (props) => {
             value={formData.category}
             name="category"
             placeholder='Select a category'
-            value={formData.category}
             onChange={handleChange}
             className="form_select"
             required
@@ -109,10 +117,17 @@ const NewListing = (props) => {
             <option value="Food">Food</option>
           </select>
         </div>
-        <div className="form_group">
-          <button type="submit" className="form_button">
-            Create Listing
-          </button>
+        <div>
+          <label htmlFor="image">Upload Image:</label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            onChange={handleChange} 
+          />
+        </div>
+        <div>
+          <button type="submit">Create Listing</button>
         </div>
       </form>
     </main>
