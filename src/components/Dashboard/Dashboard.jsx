@@ -1,10 +1,11 @@
 import { AuthedUserContext } from '../../App';
 import { useContext, useEffect, useState } from 'react';
-import * as listService from '../../services/listSever';
+import * as listService from '../../services/listServer';
 import { useNavigate } from 'react-router-dom';
+import './Dashboard.css'
 
 
-const Dashboard = ({}) => {
+const Dashboard = () => {
   const navigate = useNavigate()
   const user = useContext(AuthedUserContext);
   const [listings, setListings] = useState([]);
@@ -20,51 +21,47 @@ const Dashboard = ({}) => {
       }
     };
     fetchListings();
-  }, [] )
+  }, []);
 
-  const handleUpdate = async (listingId) => {
-    try {
-      const updatedListing = await listService.update(listingId, {});
-      setListings((prevListings) => 
-        prevListings.map((listing) => 
-          listing.id === listingId ? updatedListing : listing));
-
-    } catch (error) {
-      console.log(error)
-    }
-    }
+  // const handleUpdate = async (listingId) => {
+  //   try {
+  //     const updatedListing = await listService.update(listingId, {});
+  //     setListings((prevListings) =>
+  //       prevListings.map((listing) => (listing.id === listingId ? updatedListing : listing))
+  //     );
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const handleDelete = async (listingId) => {
     try {
-      await listService.deleteList(listingId)
-      setListings((prevListings) => 
-        prevListings.filter((listing) => listing._id !== listingId));
+      await listService.deleteList(listingId);
+      setListings((prevListings) => prevListings.filter((listing) => listing._id !== listingId));
     } catch (error) {
-      console.log('Failed to delete listing:', error)
+      console.log('Failed to delete listing:', error);
     }
   }
 
   return (
     <main>
       <h1>{user.username}'s Listings</h1>
-      <p>
-        This is the dashboard page where you, and only you, can see a dashboard
-        of all of your things.
-      </p>
-      <div className="listings-grid">
+      <div className="listings_grid">
         {listings.map((listing) => (
-          <div key={listing._id} className="listing-card">
-            <h2>{listing.name}</h2>
-            <p>{listing.description}</p>
-            <p>Price: ${listing.price}</p>
-            <p>Category: {listing.category}</p>
-            {/* <p>Reviews: {listing.reviews}</p> */}
-            
+          <div key={listing.id} className="listing_card">
+            <h2 className="listing_title">{listing.name}</h2>
+            <p className="listing_description">{listing.description}</p>
+            <p className="listing_price">Price: ${listing.price}</p>
+            <p className="listing_category">Category: {listing.category}</p>
             { listing.reviews.map((review) => (
-              <p>{review.text}</p>
+              <p className="listing_reviews">{review.text}</p>
             ))}
-            <button onClick={() => navigate(`/update/${listing._id}`)}>Update</button>
-            <button onClick={() => handleDelete(listing._id)}>Delete</button>
+            <button className="listing_button update" onClick={() => navigate(`/update/${listing._id}`)}>
+              Update
+            </button>
+            <button className="listing_button delete" onClick={() => handleDelete(listing._id)}>
+              Delete
+            </button>
           </div>
         ))}
       </div>
