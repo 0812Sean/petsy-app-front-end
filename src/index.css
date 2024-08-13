@@ -29,7 +29,7 @@
 a {
   font-weight: 500;
   color: #646cff;
-  text-decoration: inherit;
+  text-decoration: none;
 }
 
 a:hover {
@@ -53,25 +53,25 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
-  cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
   border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 /* form styling */
 
 .form_container {
   max-width: 400px;
-  margin: 0 auto;
+  margin: 55px auto;
   padding: 20px;
   background-color: var(--form-background-color);
   border-radius: 8px;
+  color: var(--text-color);
+}
+
+.form_container h1 {
+  text-align: center;
 }
 
 .form_group {

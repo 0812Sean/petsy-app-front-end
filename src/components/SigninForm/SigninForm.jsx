@@ -33,40 +33,42 @@ const SigninForm = (props) => {
 
   return (
     <main className="form_container">
-  <h1>Log In</h1>
-  <p>{message}</p>
-  <form autoComplete="off" onSubmit={handleSubmit}>
-    <div className="form_group">
-      <label htmlFor="username" className="form_label">Username: </label>
-      <input
-        type="text"
-        autoComplete="off"
-        id="username"
-        value={formData.username}
-        name="username"
-        onChange={handleChange}
-        className="form_input"
-      />
-    </div>
-    <div className="form_group">
-      <label htmlFor="password" className="form_label">Password: </label>
-      <input
-        type="password"
-        autoComplete="off"
-        id="password"
-        value={formData.password}
-        name="password"
-        onChange={handleChange}
-        className="form_input"
-      />
-    </div>
-    <div className="form_group">
-      <button className="form_button">Log In</button>
-      <Link to="/" className="form_button">Cancel</Link>
-    </div>
-  </form>
-</main>
-
+      <h1>Log In</h1>
+      <p>{message}</p>
+      <form autoComplete="off" onSubmit={handleSubmit}>
+        <div className="form_group">
+          <label htmlFor="username" className="form_label">
+            Username:{' '}
+          </label>
+          <input
+            type="text"
+            autoComplete="off"
+            id="username"
+            value={formData.username}
+            name="username"
+            onChange={handleChange}
+            className="form_input"
+          />
+        </div>
+        <div className="form_group">
+          <label htmlFor="password" className="form_label">
+            Password:{' '}
+          </label>
+          <input
+            type="password"
+            autoComplete="off"
+            id="password"
+            value={formData.password}
+            name="password"
+            onChange={handleChange}
+            className="form_input"
+          />
+        </div>
+        <div className="form_group">
+          <button className="form_button">Log In</button>
+        </div>
+      </form>
+    </main>
   );
 };
 
