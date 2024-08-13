@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as listService from '../../services/listSever';
-import './NewListing.css';
+import * as listService from '../../services/listServer';
+// import './NewListing.css';
 
 const NewListing = (props) => {
   const navigate = useNavigate();
@@ -49,7 +49,9 @@ const NewListing = (props) => {
             value={formData.name}
             name="name"
             onChange={handleChange}
-            className="form_input"
+			required
+			placeholder='Enter a title'
+      className="form_input"
           />
         </div>
         <div className="form_group">
@@ -62,7 +64,9 @@ const NewListing = (props) => {
             value={formData.description}
             name="description"
             onChange={handleChange}
-            className="form_input"
+			required
+			placeholder='Enter a description'
+      className="form_input"
           />
         </div>
         <div className="form_group">
@@ -76,7 +80,9 @@ const NewListing = (props) => {
             value={formData.price}
             name="price"
             onChange={handleChange}
-            className="form_input"
+			required
+			placeholder='Enter a price'
+      className="form_input"
           />
         </div>
         <div className="form_group">
@@ -88,9 +94,13 @@ const NewListing = (props) => {
             id="category"
             value={formData.category}
             name="category"
+            placeholder='Select a category'
+            value={formData.category}
             onChange={handleChange}
             className="form_select"
+            required
           >
+			<option value="" disabled >Select a category</option>
             <option value="Electronics">Electronics</option>
             <option value="Books">Books</option>
             <option value="Clothing">Clothing</option>
