@@ -1,23 +1,49 @@
 import { AuthedUserContext } from '../../App';
 import { useContext, useEffect, useState } from 'react';
 import * as listService from '../../services/listSever';
+import { useNavigate } from 'react-router-dom';
 import './Dashboard.css'
 
-const Dashboard = ({}) => {
+
+const Dashboard = () => {
+  const navigate = useNavigate()
   const user = useContext(AuthedUserContext);
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const userLists = await listService.index()
+        const userLists = await listService.index();
+  
         setListings(userLists);
       } catch (error) {
         console.log(error);
       }
     };
     fetchListings();
-  })
+  }, [] )
+
+  const handleUpdate = async (listingId) => {
+    try {
+      const updatedListing = await listService.update(listingId, {});
+      setListings((prevListings) => 
+        prevListings.map((listing) => 
+          listing.id === listingId ? updatedListing : listing));
+
+    } catch (error) {
+      console.log(error)
+    }
+    }
+
+  const handleDelete = async (listingId) => {
+    try {
+      await listService.deleteList(listingId)
+      setListings((prevListings) => 
+        prevListings.filter((listing) => listing._id !== listingId));
+    } catch (error) {
+      console.log('Failed to delete listing:', error)
+    }
+  }
 
   return (
     <main>
