@@ -53,7 +53,9 @@ const Dashboard = () => {
             <p className="listing_description">{listing.description}</p>
             <p className="listing_price">Price: ${listing.price}</p>
             <p className="listing_category">Category: {listing.category}</p>
-            <p className="listing_reviews">Reviews: {listing.reviews}</p>
+            { listing.reviews.map((review) => (
+              <p className="listing_reviews">{review.text}</p>
+            ))}
             <button className="listing_button update" onClick={() => navigate(`/update/${listing._id}`)}>
               Update
             </button>
