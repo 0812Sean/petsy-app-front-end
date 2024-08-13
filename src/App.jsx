@@ -7,6 +7,7 @@ import SignupForm from './components/SignupForm/SignupForm';
 import SigninForm from './components/SigninForm/SigninForm';
 import * as authService from '../src/services/authService'; // import the authservice
 import NewListing from './components/NewListing/NewListing';
+import './App.css';
 import UpdateListing from './components/UpdateListing/UpdateListing';
 import Marketplace from './components/Marketplace/Marketplace';
 export const AuthedUserContext = createContext(null);
@@ -24,11 +25,7 @@ const App = () => {
       <AuthedUserContext.Provider value={user}>
         <NavBar user={user} handleSignout={handleSignout} />
         <Routes>
-          {user ? (
-            <Route path="/" element={<Dashboard user={user} />} />
-          ) : (
-            <Route path="/" element={<Landing />} />
-          )}
+          {user ? <Route path="/" element={<Dashboard user={user} />} /> : <Route path="/" element={<Landing />} />}
           <Route path="/signup" element={<SignupForm setUser={setUser} />} />
           <Route path="/signin" element={<SigninForm setUser={setUser} />} />
           <Route path ='/new' element={<NewListing />} />

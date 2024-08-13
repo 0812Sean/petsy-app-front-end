@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import * as listService from '../../services/listSever';
+import * as listService from '../../services/listServer';
 
 const UpdateListing = () => {
   const { listingId } = useParams();
@@ -15,7 +15,7 @@ const UpdateListing = () => {
   useEffect(() => {
     const fetchListing = async () => {
       try {
-        const listing = await listService.show(listingId);
+        const listing = await listService.show(listingId);   
         setFormData({
           name: listing.name,
           description: listing.description,
@@ -23,10 +23,9 @@ const UpdateListing = () => {
           category: listing.category,
         });
       } catch (error) {
-        console.log(error);
+        console.log('Error fetching listing:', error);
       }
     };
-
     fetchListing();
   }, [listingId]);
 
@@ -61,7 +60,7 @@ const UpdateListing = () => {
         </div>
         <div>
           <label htmlFor="description">Description:</label>
-          <input
+          <textarea
             type="text"
             id="description"
             value={formData.description}

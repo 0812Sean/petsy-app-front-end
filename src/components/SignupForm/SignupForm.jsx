@@ -37,45 +37,53 @@ const SignupForm = (props) => {
   };
 
   return (
-    <main>
+    <main className="form_container">
       <h1>Sign Up</h1>
       <p>{message}</p>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
+        <div className="form_group">
+          <label htmlFor="username" className="form_label">
+            Username:
+          </label>
           <input
             type="text"
-            id="name"
+            id="username"
             value={username}
             name="username"
             onChange={handleChange}
+            className="form_input"
           />
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div className="form_group">
+          <label htmlFor="password" className="form_label">
+            Password:
+          </label>
           <input
             type="password"
             id="password"
             value={password}
             name="password"
             onChange={handleChange}
+            className="form_input"
           />
         </div>
-        <div>
-          <label htmlFor="confirm">Confirm Password:</label>
+        <div className="form_group">
+          <label htmlFor="confirm" className="form_label">
+            Confirm Password:
+          </label>
           <input
             type="password"
             id="confirm"
             value={passwordConf}
             name="passwordConf"
             onChange={handleChange}
+            className="form_input"
           />
         </div>
-        <div>
-          <button disabled={isFormInvalid()}>Sign Up</button>
-          <Link to="/">
-            <button>Cancel</button>
-          </Link>
+        <div className="form_group">
+          <button className="form_button" disabled={isFormInvalid()}>
+            Sign Up
+          </button>
         </div>
       </form>
     </main>

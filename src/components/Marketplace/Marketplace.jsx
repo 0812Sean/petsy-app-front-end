@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import * as listService from '../../services/listSever';
+import * as listService from '../../services/listServer';
 
 const Marketplace = () => {
   const [listings, setListings] = useState([]);
