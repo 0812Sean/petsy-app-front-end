@@ -30,7 +30,15 @@ a:hover {
 }
 
 body {
+<<<<<<< HEAD
   width: 100%;
+=======
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+>>>>>>> 8f34e239e763ca1d3ef6c85c3c0c142e20eecba4
 }
 
 h1 {
