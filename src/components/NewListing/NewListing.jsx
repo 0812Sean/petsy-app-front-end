@@ -18,18 +18,18 @@ const NewListing = (props) => {
   };
 
   const handleChange = (e) => {
-    const {name, value} = e.target
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+    const {name, value} = e.target;
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const newItem = await listService.create(formData)
-      console.log(newItem)
-      navigate('/')
+      const newItem = await listService.create(formData);
+      console.log(newItem);
+      navigate('/'); // Redirect to home or another page after successful creation
     } catch (err) {
-      updateMessage(err.message)
+      updateMessage(err.message);
     }
   };
 
@@ -37,9 +37,11 @@ const NewListing = (props) => {
     <main>
       <h1>Create New Listing</h1>
       <p>{message}</p>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Title:</label>
+      <form autoComplete="off" onSubmit={handleSubmit} className="form_container">
+        <div className="form_group">
+          <label htmlFor="title" className="form_label">
+            Title:
+          </label>
           <input
             type="text"
             autoComplete="off"
@@ -49,10 +51,13 @@ const NewListing = (props) => {
             onChange={handleChange}
 			required
 			placeholder='Enter a title'
+      className="form_input"
           />
         </div>
-        <div>
-          <label htmlFor="description">Description:</label>
+        <div className="form_group">
+          <label htmlFor="description" className="form_label">
+            Description:
+          </label>
           <textarea
             autoComplete="off"
             id="description"
@@ -61,10 +66,13 @@ const NewListing = (props) => {
             onChange={handleChange}
 			required
 			placeholder='Enter a description'
+      className="form_input"
           />
         </div>
-        <div>
-          <label htmlFor="price">Price:</label>
+        <div className="form_group">
+          <label htmlFor="price" className="form_label">
+            Price:
+          </label>
           <input
             type="number"
             autoComplete="off"
@@ -74,18 +82,22 @@ const NewListing = (props) => {
             onChange={handleChange}
 			required
 			placeholder='Enter a price'
+      className="form_input"
           />
         </div>
-        <div>
-          <label htmlFor="categorty">Category:</label>
+        <div className="form_group">
+          <label htmlFor="category" className="form_label">
+            Category:
+          </label>
           <select
-            type="category"
             autoComplete="off"
             id="category"
+            value={formData.category}
             name="category"
             placeholder='Select a category'
             value={formData.category}
             onChange={handleChange}
+            className="form_select"
             required
           >
 			<option value="" disabled >Select a category</option>
@@ -97,8 +109,10 @@ const NewListing = (props) => {
             <option value="Food">Food</option>
           </select>
         </div>
-        <div>
-          <button type="submit">Create Listing</button>
+        <div className="form_group">
+          <button type="submit" className="form_button">
+            Create Listing
+          </button>
         </div>
       </form>
     </main>
