@@ -1,6 +1,6 @@
 import { AuthedUserContext } from '../../App';
 import { useContext, useEffect, useState } from 'react';
-import * as listService from '../../services/listSever';
+import * as listService from '../../services/listServer';
 import { useNavigate } from 'react-router-dom';
 
 

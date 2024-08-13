@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as listService from '../../services/listSever';
+import * as listService from '../../services/listServer';
 // import './NewListing.css';
 
 const NewListing = (props) => {
@@ -47,6 +47,8 @@ const NewListing = (props) => {
             value={formData.name}
             name="name"
             onChange={handleChange}
+			required
+			placeholder='Enter a title'
           />
         </div>
         <div>
@@ -57,6 +59,8 @@ const NewListing = (props) => {
             value={formData.description}
             name="description"
             onChange={handleChange}
+			required
+			placeholder='Enter a description'
           />
         </div>
         <div>
@@ -68,6 +72,8 @@ const NewListing = (props) => {
             value={formData.price}
             name="price"
             onChange={handleChange}
+			required
+			placeholder='Enter a price'
           />
         </div>
         <div>
@@ -76,19 +82,20 @@ const NewListing = (props) => {
             type="category"
             autoComplete="off"
             id="category"
-            placeHolder='Select a category'
-            value={formData.category}
             name="category"
+            placeholder='Select a category'
+            value={formData.category}
             onChange={handleChange}
-            required = {true}
+            required
           >
+			<option value="" disabled >Select a category</option>
             <option value="Electronics">Electronics</option>
             <option value="Books">Books</option>
             <option value="Clothing">Clothing</option>
             <option value="Furniture">Furniture</option>
             <option value="Toys">Toys</option>
             <option value="Food">Food</option>
-            </select>
+          </select>
         </div>
         <div>
           <button type="submit">Create Listing</button>
