@@ -8,7 +8,7 @@ import SigninForm from './components/SigninForm/SigninForm';
 import * as authService from '../src/services/authService'; // import the authservice
 import NewListing from './components/NewListing/NewListing';
 import UpdateListing from './components/UpdateListing/UpdateListing';
-
+import Marketplace from './components/Marketplace/Marketplace';
 export const AuthedUserContext = createContext(null);
 
 const App = () => {
@@ -33,6 +33,7 @@ const App = () => {
           <Route path="/signin" element={<SigninForm setUser={setUser} />} />
           <Route path ='/new' element={<NewListing />} />
           <Route path ='/update/:listingId' element={<UpdateListing /> } />
+          <Route path ='/Marketplace' element={<Marketplace/>}/>
         </Routes>
       </AuthedUserContext.Provider>
     </>
