@@ -105,7 +105,7 @@ const NewListing = (props) => {
             type="file"
             id="image"
             name="image"
-            onChange={handleFileChange} 
+            onChange={handleChange} 
           />
         </div>
         <div>
