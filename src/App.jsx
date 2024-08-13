@@ -6,12 +6,9 @@ import Dashboard from './components/Dashboard/Dashboard';
 import SignupForm from './components/SignupForm/SignupForm';
 import SigninForm from './components/SigninForm/SigninForm';
 import * as authService from '../src/services/authService'; // import the authservice
-<<<<<<< HEAD
-import './App.css'
-=======
 import NewListing from './components/NewListing/NewListing';
+import './App.css'
 import UpdateListing from './components/UpdateListing/UpdateListing';
->>>>>>> 8f34e239e763ca1d3ef6c85c3c0c142e20eecba4
 
 export const AuthedUserContext = createContext(null);
 
