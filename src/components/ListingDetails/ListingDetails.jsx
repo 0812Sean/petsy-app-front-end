@@ -51,13 +51,16 @@ const ListingDetails = () => {
 
   if (!listing) return <p>Loading...</p>;
 
+  let PHI = 'https://robohash.org/set_set4/bgset_bg1/RandomParams?size=260x220'
+
+
   return (
     <main>
       <h1>{listing.name}</h1>
       <p>{listing.description}</p>
       <p>Price: ${listing.price}</p>
       <p>Category: {listing.category}</p>
-      {<img src={listing.imageUrl} alt={listing.name}/>}
+      {<img src={PHI} alt={listing.name} />}
       {listing.author && (
         <p>
           Posted by: {listing.author.username} on {new Date(listing.createdAt).toLocaleDateString()}

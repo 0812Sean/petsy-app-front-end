@@ -54,7 +54,7 @@ const Dashboard = () => {
             <p className="listing_description">{listing.description}</p>
             <p className="listing_price">Price: ${listing.price}</p>
             <p className="listing_category">Category: {listing.category}</p>
-            {<img src={listing.imageUrl} alt={listing.name} />}
+            {listing.imageUrl && <img src={listing.imageUrl} alt={listing.name} style={{ width: '300px', height: 'auto' }} />}
             { listing.reviews.map((review) => (
               <p className="listing_reviews">{review.text}</p>
             ))}
