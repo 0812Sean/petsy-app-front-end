@@ -10,6 +10,8 @@ import NewListing from './components/NewListing/NewListing';
 import './App.css';
 import UpdateListing from './components/UpdateListing/UpdateListing';
 import Marketplace from './components/Marketplace/Marketplace';
+import ListingDetails from './components/ListingDetails/ListingDetails';
+
 export const AuthedUserContext = createContext(null);
 
 const App = () => {
@@ -31,6 +33,7 @@ const App = () => {
           <Route path ='/new' element={<NewListing />} />
           <Route path ='/update/:listingId' element={<UpdateListing /> } />
           <Route path ='/Marketplace' element={<Marketplace/>}/>
+          <Route path="/listings/:id" element={<ListingDetails />} />
         </Routes>
       </AuthedUserContext.Provider>
     </>

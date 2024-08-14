@@ -19,13 +19,12 @@ const NewListing = (props) => {
   };
 
   const handleChange = (e) => {
+    console.log("e.target.value: ", e.target.value)
     const {name, value} = e.target;
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]); 
-  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +34,7 @@ const NewListing = (props) => {
       //   formDataToSubmit.append('image', selectedFile);
       // }
       const newItem = await listService.create(formData)
-      console.log(newItem)
+      console.log("newItem: ", newItem)
       navigate('/')
     } catch (err) {
       updateMessage(err.message);

@@ -14,6 +14,7 @@ const Dashboard = () => {
     const fetchListings = async () => {
       try {
         const userLists = await listService.index();
+        console.log("userLists: ", userLists);
   
         setListings(userLists);
       } catch (error) {
@@ -53,6 +54,7 @@ const Dashboard = () => {
             <p className="listing_description">{listing.description}</p>
             <p className="listing_price">Price: ${listing.price}</p>
             <p className="listing_category">Category: {listing.category}</p>
+            {<img src={listing.imageUrl} alt={listing.name} />}
             { listing.reviews.map((review) => (
               <p className="listing_reviews">{review.text}</p>
             ))}
