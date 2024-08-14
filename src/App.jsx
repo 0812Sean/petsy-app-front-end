@@ -11,6 +11,7 @@ import './App.css';
 import UpdateListing from './components/UpdateListing/UpdateListing';
 import Marketplace from './components/Marketplace/Marketplace';
 export const AuthedUserContext = createContext(null);
+import ListingForm from './components/ListingForm/ListingForm';
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser()); // using the method from authservice
@@ -28,8 +29,8 @@ const App = () => {
           {user ? <Route path="/" element={<Dashboard user={user} />} /> : <Route path="/" element={<Landing />} />}
           <Route path="/signup" element={<SignupForm setUser={setUser} />} />
           <Route path="/signin" element={<SigninForm setUser={setUser} />} />
-          <Route path ='/new' element={<NewListing />} />
-          <Route path ='/update/:listingId' element={<UpdateListing /> } />
+          <Route path ='/new' element={<ListingForm />} />
+          <Route path ='/update/:listingId' element={<ListingForm /> } />
           <Route path ='/Marketplace' element={<Marketplace/>}/>
         </Routes>
       </AuthedUserContext.Provider>

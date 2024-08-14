@@ -13,26 +13,16 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const userLists = await listService.index();
-  
+        const allListings = await listService.index();
+        const userLists = allListings.filter(listing => listing.author.username === user.username);
         setListings(userLists);
       } catch (error) {
         console.log(error);
       }
     };
     fetchListings();
-  }, []);
-
-  // const handleUpdate = async (listingId) => {
-  //   try {
-  //     const updatedListing = await listService.update(listingId, {});
-  //     setListings((prevListings) =>
-  //       prevListings.map((listing) => (listing.id === listingId ? updatedListing : listing))
-  //     );
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  }, [user.id]);
+  
 
   const handleDelete = async (listingId) => {
     try {
