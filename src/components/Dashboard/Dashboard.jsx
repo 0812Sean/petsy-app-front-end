@@ -13,27 +13,16 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const userLists = await listService.index();
-        console.log("userLists: ", userLists);
-  
+        const allListings = await listService.index();
+        const userLists = allListings.filter((listing) => listing.author.username === user.username);
         setListings(userLists);
       } catch (error) {
         console.log(error);
       }
     };
     fetchListings();
-  }, []);
-
-  // const handleUpdate = async (listingId) => {
-  //   try {
-  //     const updatedListing = await listService.update(listingId, {});
-  //     setListings((prevListings) =>
-  //       prevListings.map((listing) => (listing.id === listingId ? updatedListing : listing))
-  //     );
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  }, [user.id, user.username]); // ! added user.username // Remove if not needed
+  
 
   const handleDelete = async (listingId) => {
     try {
@@ -48,7 +37,7 @@ const Dashboard = () => {
     <main>
       <h1>{user.username}'s Listings</h1>
       <div className="listings_grid">
-        {listings.map((listing) => (
+        {listings.map((listing, index) => (
           <div key={listing.id} className="listing_card">
             <h2 className="listing_title">{listing.name}</h2>
             <p className="listing_description">{listing.description}</p>
@@ -56,7 +45,7 @@ const Dashboard = () => {
             <p className="listing_category">Category: {listing.category}</p>
             {listing.imageUrl && <img src={listing.imageUrl} alt={listing.name} style={{ width: '300px', height: 'auto' }} />}
             { listing.reviews.map((review) => (
-              <p className="listing_reviews">{review.text}</p>
+              <p key={index} className="listing_reviews">{review.text}</p>
             ))}
             <button className="listing_button update" onClick={() => navigate(`/update/${listing._id}`)}>
               Update

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate} from 'react-router-dom';
 import * as listService from '../../services/listServer';
 import { AuthedUserContext } from '../../App';
