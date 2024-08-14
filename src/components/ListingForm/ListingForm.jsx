@@ -58,7 +58,7 @@ const ListingForm = (props) => {
                         autoComplete='off'
                         id="name"
                         name="name"
-                        value={formData.title}
+                        value={formData.name}
                         onChange={handleChange}
                         required
                         placeholder='Enter a title'
