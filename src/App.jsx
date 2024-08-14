@@ -19,7 +19,6 @@ const App = () => {
     authService.signout();
     setUser(null);
   };
-
   return (
     <>
       <AuthedUserContext.Provider value={user}>
