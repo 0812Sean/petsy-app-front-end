@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as listService from '../../services/listServer';
+import { Link } from 'react-router-dom';
 
 const Marketplace = () => {
   const [listings, setListings] = useState([]);
@@ -31,11 +32,13 @@ const Marketplace = () => {
               {listing.reviews && listing.reviews.map((review) => (
                 <p key={review._id}>{review.text}</p>
               ))}
+           <Link to={`/listings/${listing._id}`}>View Details</Link>
             </div>
           ))
         ) : (
           <p>No listings available</p> 
         )}
+        
       </div>
     </main>
   );
