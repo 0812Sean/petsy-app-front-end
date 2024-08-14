@@ -17,7 +17,7 @@ const Marketplace = () => {
 
     fetchListings();
   }, []);
-
+  let PHI = 'https://robohash.org/set_set4/bgset_bg1/RandomParams?size=260x220'
   return (
     <main>
       <h1>Marketplace</h1>
@@ -25,14 +25,10 @@ const Marketplace = () => {
         {listings.length > 0 ? (
           listings.map((listing) => (
             <div key={listing._id} className="listing-card">
-              <h2>{listing.name}</h2>
-              <p>{listing.description}</p>
-              <p>Price: ${listing.price}</p>
-              <p>Category: {listing.category}</p>
-              {listing.reviews && listing.reviews.map((review) => (
-                <p key={review._id}>{review.text}</p>
-              ))}
-           <Link to={`/listings/${listing._id}`}>View Details</Link>
+               <Link to={`/listings/${listing._id}`}>
+                <img src={listing.imageUrl || PHI} alt={listing.name} />
+                <h2>{listing.name}</h2>
+              </Link>               
             </div>
           ))
         ) : (
