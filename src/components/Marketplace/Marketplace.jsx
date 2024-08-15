@@ -17,6 +17,7 @@ const Marketplace = () => {
 
     fetchListings();
   }, []);
+  // ! remove PHI when done with placeholder
   let PHI = 'https://robohash.org/set_set4/bgset_bg1/RandomParams?size=260x220'
   return (
     <main>

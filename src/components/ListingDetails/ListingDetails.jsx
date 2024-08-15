@@ -51,6 +51,7 @@ const ListingDetails = () => {
 
   if (!listing) return <p>Loading...</p>;
 
+  // ! Remove PHI function when done testing. This is just a placeholder.9
   let PHI = 'https://robohash.org/set_set4/bgset_bg1/RandomParams?size=260x220'
 
 
