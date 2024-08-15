@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
-import './StarRating.css';
+import './Stars.css';
 
-const StarRating = ({ rating, setRating }) => {
+export const StarPrompt = ({ rating, setRating }) => {
   const [hover, setHover] = useState(null);
 
   return (
@@ -32,6 +32,15 @@ const StarRating = ({ rating, setRating }) => {
   );
 };
 
-
-
-export default StarRating
+export const StarReview = ({ stars }) => {
+  return (
+    <>
+      {[...Array(5)].map((_, starIdx) => {
+        const currentRating = starIdx + 1;
+        return (
+          <FaStar key={starIdx} className="star starStatic" size={20} color={currentRating <= stars ? '#ffc107' : '#e4e5e9'} />
+        );
+      })}
+    </>
+  );
+};

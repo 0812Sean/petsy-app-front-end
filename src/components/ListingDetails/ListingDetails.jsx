@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import * as listService from '../../services/listServer';
 import { AuthedUserContext } from '../../App';
 import { useContext } from 'react';
-import StarRating from '../StarRating/StarRating';
+import { StarPrompt, StarReview } from '../Stars/Stars';
 import './ListingDetails.css';
 
 const ListingDetails = () => {
@@ -14,6 +14,7 @@ const ListingDetails = () => {
   const [newReview, setNewReview] = useState('');
   const [message, setMessage] = useState('');
   const [rating, setRating] = useState(null);
+  const stars = useState(null);
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -76,6 +77,7 @@ const ListingDetails = () => {
       {listing.reviews && listing.reviews.length > 0 ? (
         listing.reviews.map((review) => (
           <div key={review._id}>
+            <StarReview stars={review.rating} />
             <p>{review.text}</p>
             {review.author && (
               <p>
@@ -91,7 +93,7 @@ const ListingDetails = () => {
       <h3>Add a Review</h3>
       <form onSubmit={handleReviewSubmit}>
         <textarea value={newReview} onChange={handleReviewChange} required />
-        <StarRating rating={rating} setRating={setRating} />
+        <StarPrompt rating={rating} setRating={setRating} />
         <div className="form_button">
           <button type="submit">Submit Review</button>
           <button onClick={() => navigate('/marketplace')}>Back</button>

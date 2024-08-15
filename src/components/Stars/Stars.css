@@ -5,3 +5,7 @@
 .star{
   cursor: pointer;
 }
+
+.starStatic{
+  cursor: default;
+}
