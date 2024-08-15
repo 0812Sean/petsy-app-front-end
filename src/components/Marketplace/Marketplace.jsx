@@ -26,7 +26,7 @@ const Marketplace = () => {
           listings.map((listing) => (
             <div key={listing._id} className="listing-card">
                <Link to={`/listings/${listing._id}`}>
-                <img src={listing.imageUrl || PHI} alt={listing.name} />
+                <img src={listing.imageUrl} alt={listing.name} />
                 <h2>{listing.name}</h2>
               </Link>               
             </div>
