@@ -14,7 +14,8 @@ const Dashboard = () => {
     const fetchListings = async () => {
       try {
         const allListings = await listService.index();
-        const userLists = allListings.filter((listing) => listing.author.username === user.username);
+        const userLists = allListings.filter((listing) => listing.author && listing.author.username === user.username);
+        console.log(allListings)
         setListings(userLists);
       } catch (error) {
         console.log(error);

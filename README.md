@@ -34,11 +34,11 @@ Petsy is a vibrant online marketplace dedicated to all things pets! Whether you'
 # Attributions
 
 - [JSONWebTokens](https://www.npmjs.com/package/jsonwebtoken)
-- [React Stars](https://www.npmjs.com/package/react-stars)
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
 - [axios](https://www.npmjs.com/package/axios)
 - [body-parser](https://www.npmjs.com/package/body-parser)
 - [multer](https://www.npmjs.com/package/multer)
+- [react-icons](https://www.npmjs.com/package/react-icons)
 
 
 # Technologies Used

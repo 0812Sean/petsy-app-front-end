@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate} from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import * as listService from '../../services/listServer';
 import { AuthedUserContext } from '../../App';
 import { useContext } from 'react';
+import StarRating from '../StarRating/StarRating';
+import './ListingDetails.css';
 
 const ListingDetails = () => {
   const user = useContext(AuthedUserContext);
-  const { id } = useParams(); 
-  const navigate = useNavigate(); 
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [listing, setListing] = useState(null);
   const [newReview, setNewReview] = useState('');
   const [message, setMessage] = useState('');
+  const [rating, setRating] = useState(null);
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -33,8 +36,9 @@ const ListingDetails = () => {
     e.preventDefault();
     try {
       const reviewData = {
-        text: newReview, 
-        author: user._id 
+        text: newReview,
+        author: user._id,
+        rating: rating,
       };
       const updatedListing = await listService.createReview(id, reviewData);
       setListing(updatedListing);
@@ -42,7 +46,6 @@ const ListingDetails = () => {
       setMessage('Review added successfully!');
 
       window.location.reload();
-
     } catch (error) {
       setMessage('Error adding review');
       console.log('Error adding review:', error);
@@ -51,12 +54,12 @@ const ListingDetails = () => {
 
   if (!listing) return <p>Loading...</p>;
 
-  // ! Remove PHI function when done testing. This is just a placeholder.9
-  let PHI = 'https://robohash.org/set_set4/bgset_bg1/RandomParams?size=260x220'
-
+  // ! Remove PHI function when done testing. This is just a placeholder image for now.
+  let PHI = 'https://robohash.org/set_set4/bgset_bg1/RandomParams?size=260x220';
 
   return (
     <main>
+      {/* marketplace product listing */}
       <h1>{listing.name}</h1>
       <p>{listing.description}</p>
       <p>Price: ${listing.price}</p>
@@ -67,7 +70,8 @@ const ListingDetails = () => {
           Posted by: {listing.author.username} on {new Date(listing.createdAt).toLocaleDateString()}
         </p>
       )}
-      
+
+      {/* product reviews */}
       <h2>Reviews</h2>
       {listing.reviews && listing.reviews.length > 0 ? (
         listing.reviews.map((review) => (
@@ -79,7 +83,6 @@ const ListingDetails = () => {
               </p>
             )}
           </div>
-
         ))
       ) : (
         <p>No reviews yet</p>
@@ -88,9 +91,10 @@ const ListingDetails = () => {
       <h3>Add a Review</h3>
       <form onSubmit={handleReviewSubmit}>
         <textarea value={newReview} onChange={handleReviewChange} required />
+        <StarRating rating={rating} setRating={setRating} />
         <div className="form_button">
-        <button type="submit">Submit Review</button>
-        <button onClick={() => navigate('/marketplace')}>Back</button>
+          <button type="submit">Submit Review</button>
+          <button onClick={() => navigate('/marketplace')}>Back</button>
         </div>
       </form>
       {message && <p>{message}</p>}
