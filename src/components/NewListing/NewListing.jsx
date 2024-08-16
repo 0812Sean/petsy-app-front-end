@@ -10,7 +10,7 @@ const NewListing = (props) => {
     description: '',
     price: '',
     category: '',
-    image: '',
+    imageUrl: '',
   });
   const [message, setMessage] = useState('');
 
@@ -29,10 +29,10 @@ const NewListing = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // const formDataToSubmit = new FormData();
-      // if (selectedFile) {
-      //   formDataToSubmit.append('image', selectedFile);
-      // }
+      const formDataToSubmit = new FormData();
+      if (selectedFile) {
+        formDataToSubmit.append('image', selectedFile);
+      }
       const newItem = await listService.create(formData)
       console.log("newItem: ", newItem)
       navigate('/')

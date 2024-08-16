@@ -13,7 +13,7 @@ Project Assignment 2 - [General Assembly](https://generalassemb.ly/)<br/>
 
 <div align="center">
 
-![placeholder image](https://robohash.org/set_set4/bgset_bg1/RandomParams?size=746x500)
+![placeholder image](https://robohash.org/set_set4/bgset_bg1/RandomParams?size=745x500)
 
 </div>
 
@@ -21,14 +21,15 @@ Petsy is a vibrant online marketplace dedicated to all things pets! Whether you'
 
 # Getting Started
 
-### Deployed application:
-<!-- ! Link for Heroku app goes here -->
+### Deployed webpage:
 
-### Planning material:
+[Visit Petsy](https://petsy-app.netlify.app/)
+
+### Project planning:
 
 [Trello board](https://trello.com/invite/b/66b3ce25b4c5c1585cbb9ee7/ATTI68c7fdf28402fe31968383865fa90dd5D049C9CA/petsy)
 
-### Petsy's back-end repository
+### Back-end repository
 [GitHub](https://github.com/JPham4801/petsy-app)<br/>
 
 # Attributions

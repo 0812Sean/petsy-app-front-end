@@ -3,7 +3,7 @@ import { FaStar } from 'react-icons/fa';
 import './Stars.css';
 
 export const StarPrompt = ({ rating, setRating }) => {
-  const [hover, setHover] = useState(null);
+  const [hover, setHover] = useState(0);
 
   return (
     <>

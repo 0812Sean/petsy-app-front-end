@@ -14,7 +14,6 @@ const ListingDetails = () => {
   const [newReview, setNewReview] = useState('');
   const [message, setMessage] = useState('');
   const [rating, setRating] = useState(null);
-  const stars = useState(null);
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -53,6 +52,14 @@ const ListingDetails = () => {
     }
   };
 
+  const listingStarAvg = () => {
+    if (listing.reviews.length === 0) return 0;
+
+
+    const totalStars = listing.reviews.reduce((acc, review) => acc + review.rating, 0);
+    return totalStars / listing.reviews.length;
+  } 
+
   if (!listing) return <p>Loading...</p>;
 
   // ! Remove PHI function when done testing. This is just a placeholder image for now.
@@ -61,6 +68,7 @@ const ListingDetails = () => {
   return (
     <main>
       {/* marketplace product listing */}
+      {console.log(listing)}
       <h1>{listing.name}</h1>
       <p>{listing.description}</p>
       <p>Price: ${listing.price}</p>
