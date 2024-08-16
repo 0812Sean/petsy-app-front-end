@@ -1,6 +1,6 @@
 <div align="center">
 
-![Profile header for Petsy](./public/resources/petsy-profile-header.png)
+![Profile header for Petsy](./src/assets/resources/petsy-profile-header.png)
 
 Software Engineering Bootcamp (August 2024)<br/>
 Project Assignment 2 - [General Assembly](https://generalassemb.ly/)<br/>
@@ -13,7 +13,7 @@ Project Assignment 2 - [General Assembly](https://generalassemb.ly/)<br/>
 
 <div align="center">
 
-![placeholder image](https://robohash.org/set_set4/bgset_bg1/RandomParams?size=746x500)
+![placeholder image](./src/assets/resources/landing_page.png)
 
 </div>
 
@@ -21,24 +21,25 @@ Petsy is a vibrant online marketplace dedicated to all things pets! Whether you'
 
 # Getting Started
 
-### Deployed application:
-<!-- ! Link for Heroku app goes here -->
+### Deployed webpage:
 
-### Planning material:
+[Visit Petsy](https://petsy-app.netlify.app/)
+
+### Project planning:
 
 [Trello board](https://trello.com/invite/b/66b3ce25b4c5c1585cbb9ee7/ATTI68c7fdf28402fe31968383865fa90dd5D049C9CA/petsy)
 
-### Petsy's back-end repository
+### Back-end repository
 [GitHub](https://github.com/JPham4801/petsy-app)<br/>
 
 # Attributions
 
 - [JSONWebTokens](https://www.npmjs.com/package/jsonwebtoken)
-- [React Stars](https://www.npmjs.com/package/react-stars)
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
 - [axios](https://www.npmjs.com/package/axios)
 - [body-parser](https://www.npmjs.com/package/body-parser)
 - [multer](https://www.npmjs.com/package/multer)
+- [react-icons](https://www.npmjs.com/package/react-icons)
 
 
 # Technologies Used

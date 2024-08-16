@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import * as authService from '../../services/authService';
+import '../../styles/formStyles.css';
 
 const SignupForm = (props) => {
   const navigate = useNavigate();
@@ -38,7 +39,6 @@ const SignupForm = (props) => {
 
   return (
     <main className="form_container">
-      <h1>Sign Up</h1>
       <p>{message}</p>
       <form onSubmit={handleSubmit}>
         <div className="form_group">

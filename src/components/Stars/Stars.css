@@ -1,0 +1,12 @@
+.star-input {
+  display: none;
+}
+
+.star{
+  cursor: pointer;
+}
+
+.starStatic{
+  cursor: default;
+  
+}

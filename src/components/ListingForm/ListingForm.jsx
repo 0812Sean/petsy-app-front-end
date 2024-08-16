@@ -48,83 +48,92 @@ const ListingForm = (props) => {
         }, [listingId]);
 
     return (
-        <>
-            <h1>{listingId ? 'Edit Listing' : 'Create new listing'}</h1>
-            <form autoComplete="off" onSubmit={handleSubmit} className='form_containter'>
-                <div className='form_group'>
-                    <label htmlFor="title" className='form_label'>Title:</label>
-                    <input
-                        type="text"
-                        autoComplete='off'
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        placeholder='Enter a title'
-                        className='form_input'
-                    />
-                </div>
-                <div className='form_group'>
-                    <label htmlFor="description" className='form_label'>Description:</label>
-                    <textarea
-                        type="text"
-                        id="description"
-                        name="description"
-                        value={formData.description}
-                        onChange={handleChange}
-                        required
-                        placeholder='Enter a description'
-                        className='form_input'
-                    />
-                </div>
-                <div className='form_group'>
-                    <label htmlFor="price" className='form_label'>Price:</label>
-                    <input
-                        type="number"
-                        id="price"
-                        name="price"
-                        value={formData.price}
-                        onChange={handleChange}
-                        required
-                        placeholder='Enter a price'
-                        className='form_input'
-                    />
-                </div>
-                <div className='form_group'> 
-                    <label htmlFor="category" className='form_label'>Category:</label>
-                    <select
-                        type="text"
-                        id="category"
-                        name="category"
-                        value={formData.category}
-                        onChange={handleChange}
-                        className='form_input'
-                        required
-                    >
-                        <option value="" disabled >Select a category</option>
-                        <option value="Electronics">Electronics</option>
-                        <option value="Books">Books</option>
-                        <option value="Clothing">Clothing</option>
-                        <option value="Furniture">Furniture</option>
-                        <option value="Toys">Toys</option>
-                        <option value="Food">Food</option>
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="image">Upload Image:</label>
-                    <input
-                        type="file"
-                        id="image"
-                        name="image"
-                        // value={formData.image}
-                        onChange={handleChange}
-                    />
-                </div>
-                <button type="submit">{listingId ? 'Update' : 'Create'}</button>
-            </form>
-        </>
+      <>
+        <h1 className="page_header">{listingId ? 'Edit Listing' : 'Create New Listing'}</h1>
+        <form autoComplete="off" onSubmit={handleSubmit} className="form_container">
+          <div className="form_group">
+            <label htmlFor="title" className="form_label">
+              Title:
+            </label>
+            <input
+              type="text"
+              autoComplete="off"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              placeholder="Enter a title"
+              className="form_input"
+            />
+          </div>
+          <div className="form_group">
+            <label htmlFor="description" className="form_label">
+              Description:
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              required
+              placeholder="Enter a description"
+              className="form_input"
+            />
+          </div>
+          <div className="form_group">
+            <label htmlFor="price" className="form_label">
+              Price:
+            </label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              value={formData.price}
+              onChange={handleChange}
+              required
+              placeholder="Enter a price"
+              className="form_input"
+            />
+          </div>
+          <div className="form_group">
+            <label htmlFor="category" className="form_label">
+              Category:
+            </label>
+            <select
+              id="category"
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+              className="form_input"
+              required
+            >
+              <option value="" disabled>
+                Select a category
+              </option>
+              <option value="Electronics">Electronics</option>
+              <option value="Books">Books</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Furniture">Furniture</option>
+              <option value="Toys">Toys</option>
+              <option value="Food">Food</option>
+            </select>
+          </div>
+          <div className="form_group">
+            <label htmlFor="image" className="form_label">
+              Upload Image:
+            </label>
+            <input type="file" id="image" name="image" onChange={handleChange} className="form_input" />
+          </div>
+          <div className="form_group">
+            <button type="submit" className="form_button">
+              {listingId ? 'Update' : 'Create'}
+            </button>
+          </div>
+        </form>
+      </>
     );
+
 };
 
 

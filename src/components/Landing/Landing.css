@@ -1,64 +1,62 @@
-.card_main {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    text-align: center;
-    color: white;
-    z-index: 2;
-    overflow: hidden;
-  }
-  
-  .card_title {
-    font-size: 48px;
-    margin-bottom: 30px;
-  }
-  
-  .card_button {
-    padding: 10px 20px;
-    margin: 10px;
-    background-color: #61dafb;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-  }
-  
-  .card_button:hover {
-    background-color: #21a1f1;
-    color: white;
-  }
-  
- .card_button a {
-    color: black;
-    text-decoration: none;
-  }
-  
-.slideshow-container{
-    margin: 0;
-    display: flex;
-    place-items: center;
-    width: 100vw;
-    height: 46.3vw;
-    font-family: Arial, sans-serif;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    animation: slideshow 30s infinite;
-	overflow: hidden;
+/* Main Card Content */
+.landing_card_main {
+  position: relative;
+  height: 100vh; /* Slideshow fully covers entire page */
+  width: 100vw;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  z-index: 2; /* Ensure it stays on top of the slideshow */
 }
-  @keyframes slideshow {
-    0% { background-image: url('/src/assets/images/photo.jpg'); }
-    20% { background-image: url('/src/assets/images/photo1.jpg'); }
-    40% { background-image: url('/src/assets/images/photo2.jpg'); }
-    60% { background-image: url('/src/assets/images/photo3.jpg'); }
-    75% { background-image: url('/src/assets/images/photo4.jpg'); }
-    85% { background-image: url('/src/assets/images/photo5.jpg'); }
-    100% { background-image: url('/src/assets/images/photo.jpg'); }
+
+/* Title Style */
+.landing_card_title {
+  font-size: 48px;
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  padding: 4px 25px;
+}
+
+/* Slideshow Container */
+.slideshow-container {
+  position: absolute; /* Positions behind the card content */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: slideshow 30s infinite;
+  z-index: 1; /* Ensure it stays behind the card content */
+  overflow: hidden;
+}
+
+/* Slideshow Animation */
+@keyframes slideshow {
+  0% {
+    background-image: url('/src/assets/resources/LandingSlide1.jpg');
   }
-  
+  20% {
+    background-image: url('/src/assets/resources/LandingSlide2.jpg');
+  }
+  40% {
+    background-image: url('/src/assets/resources/LandingSlide3.jpg');
+  }
+  60% {
+    background-image: url('/src/assets/resources/LandingSlide4.jpg');
+  }
+  75% {
+    background-image: url('/src/assets/resources/LandingSlide5.jpg');
+  }
+  85% {
+    background-image: url('/src/assets/resources/LandingSlide6.jpg');
+  }
+  100% {
+    background-image: url('/src/assets/resources/LandingSlide1.jpg');
+  }
+}

@@ -17,28 +17,32 @@ const Marketplace = () => {
 
     fetchListings();
   }, []);
-  // ! remove PHI when done with placeholder
-  let PHI = 'https://robohash.org/set_set4/bgset_bg1/RandomParams?size=260x220'
+
+  let placeHolderImg = 'https://placehold.co/260x220?text=uploading+is+hard...+(:';
   return (
     <main>
-      <h1>Marketplace</h1>
-      <div className="listings-grid">
+      <h1 className="page_header">Marketplace</h1>
+      <div className="card_grid">
         {listings.length > 0 ? (
           listings.map((listing) => (
-            <div key={listing._id} className="listing-card">
-               <Link to={`/listings/${listing._id}`}>
-                <img src={listing.imageUrl} alt={listing.name} />
-                <h2>{listing.name}</h2>
-              </Link>               
+            <div key={listing._id} className="card">
+              <Link to={`/listings/${listing._id}`}>
+                <img
+                  src={listing.imageUrl || placeHolderImg}
+                  alt={listing.name}
+                  style={{ width: '300px', height: 'auto' }}
+                />
+                <h2 className="card_title">{listing.name}</h2>
+              </Link>
             </div>
           ))
         ) : (
-          <p>No listings available</p> 
+          <p>No listings available</p>
         )}
-        
       </div>
     </main>
   );
+
 };
 
 export default Marketplace;
