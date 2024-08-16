@@ -21,7 +21,7 @@ export const StarPrompt = ({ rating, setRating }) => {
             <FaStar
               className="star"
               size={20}
-              color={currentRating <= (hover || rating) ? '#ffc107' : '#e4e5e9'}
+              color={currentRating <= (hover || rating) ? '#ffc107' : '#a5a9b9'}
               onMouseEnter={() => setHover(currentRating)}
               onMouseLeave={() => setHover(null)}
             />
@@ -38,7 +38,7 @@ export const StarReview = ({ stars }) => {
       {[...Array(5)].map((_, starIdx) => {
         const currentRating = starIdx + 1;
         return (
-          <FaStar key={starIdx} className="star starStatic" size={20} color={currentRating <= stars ? '#ffc107' : '#e4e5e9'} />
+          <FaStar key={starIdx} className="star starStatic" size={20} color={currentRating <= stars ? '#ffc107' : '#a5a9b9'} />
         );
       })}
     </>

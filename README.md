@@ -1,6 +1,6 @@
 <div align="center">
 
-![Profile header for Petsy](./public/resources/petsy-profile-header.png)
+![Profile header for Petsy](./src/assets/resources/petsy-profile-header.png)
 
 Software Engineering Bootcamp (August 2024)<br/>
 Project Assignment 2 - [General Assembly](https://generalassemb.ly/)<br/>
@@ -13,7 +13,7 @@ Project Assignment 2 - [General Assembly](https://generalassemb.ly/)<br/>
 
 <div align="center">
 
-![placeholder image](https://robohash.org/set_set4/bgset_bg1/RandomParams?size=745x500)
+![placeholder image](./src/assets/resources/landing_page.png)
 
 </div>
 

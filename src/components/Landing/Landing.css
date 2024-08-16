@@ -1,5 +1,5 @@
 /* Main Card Content */
-.card_main {
+.landing_card_main {
   position: relative;
   height: 100vh; /* Slideshow fully covers entire page */
   width: 100vw;  
@@ -13,10 +13,10 @@
 }
 
 /* Title Style */
-.card_title {
+.landing_card_title {
   font-size: 48px;
   margin-bottom: 30px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 8px;
   padding: 4px 25px;
 }

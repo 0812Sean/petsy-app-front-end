@@ -1,0 +1,104 @@
+/* default card styles */
+.card_grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 24px;
+}
+
+.card, .card-listing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 270px;
+  max-width: 600px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #F0F0F0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  color: #2A2A2A;
+}
+
+.card-review-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 650px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #F0F0F0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  color: #2A2A2A;
+}
+
+.card_title, .card_title-listing {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #2A2A2A;
+  font-weight: 500;
+}
+
+.card_rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card_rating span {
+  margin-left: 10px;
+  font-size: 1em;
+  color: #555;
+}
+
+.card_description,
+.card_price,
+.card_category {
+  margin-bottom: 15px;
+  color: #2A2A2A;
+}
+
+.card_price {
+  font-weight: bold;
+}
+
+/* review card modifications */
+
+.card_title-listing{
+  width: 500px;
+}
+
+
+
+/* Button Styling */
+.card_button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+/* Button color change on hover */
+.card_button.update {
+  background-color: #4A90E2;
+}
+
+.card_button.delete {
+  background-color: #E57373;
+}
+
+.card_button:hover:enabled.update {
+  background-color: #357ABD;
+}
+
+.card_button:hover:enabled.delete {
+  background-color: #C62828;
+}
